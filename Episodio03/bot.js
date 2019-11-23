@@ -13,9 +13,9 @@ bot.on('ready', () => {
         {name:`Olá mundo!`, type: 'PLAYING'},
         {name:`Se inscreva no canal!`, type: 'WATCHING'},
         {name:`${bot.users.size} pessoas!`, type: 'LISTENING'},
-        {name:`Bot em desenvolvimento.`, type: 'STREAMING', url:'https://twitch.tv/iHed_'}
+        {name:`Bot em desenvolvimento.`, type: 'STREAMING', url:'https://twitch.tv/SuaTwitch'}
     ]
-    function setStatus(){
+    function setStatus(){ //Função para o BOT mudar de Status aleatoriamente
         let randomStatus = status[Math.floor(Math.random()*status.length)]
         bot.user.setPresence({game: randomStatus})
     }
@@ -33,6 +33,7 @@ bot.on('message', async message => {
     let args = message.content.slice(prefix.length).trim().split(/ +/g);
     let cmd = args.shift().toLowerCase();
 
+    //Comando Ping
     if(cmd == "ping"){
         let embed1 = new RichEmbed()
         .setTimestamp()
@@ -49,6 +50,8 @@ bot.on('message', async message => {
         .setFooter(`Ping`, bot.user.displayAvatarURL);
         msg.edit(embed2);
     }
+
+    //Comando Say
     if(cmd == "say"){
         if(message.deletable) message.delete();
         
