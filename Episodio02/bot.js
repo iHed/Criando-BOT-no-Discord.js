@@ -29,16 +29,16 @@ bot.on('message', async message => {
     if(cmd == "ping"){
         let embed1 = new RichEmbed()
         .setTimestamp()
-        .setTitle(`Ping?`)
+        .setTitle(`🏓 Ping?`)
         .setColor('#ee3434')
         .setFooter(`Ping`, bot.user.displayAvatarURL);
         let msg = await message.channel.send(embed1);
 
         let embed2 = new RichEmbed()
         .setTimestamp()
-        .setTitle(`Pong!`)
+        .setTitle(`🏓 Pong!`)
         .setColor('#ee3434')
-        .setDescription(`A Latência é ${Math.floor(msg.createdTimestamp - message.createdTimestamp)}ms.\nA Latência da API é ${Math.round(bot.ping)}ms.`)
+        .setDescription(`🙎 A Latência é ${Math.floor(msg.createdTimestamp - message.createdTimestamp)}ms.\n🤖 A Latência da API é ${Math.round(bot.ping)}ms.`)
         .setFooter(`Ping`, bot.user.displayAvatarURL);
         msg.edit(embed2);
     }
